@@ -7,7 +7,7 @@ import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { notification } from "antd";
 
 export default function ContactForm() {
-	const [formState, setFormState] = useState({ firstName: "", lastName: "", email: "", company: "", phone: "", message: "", budget: "" });
+	const [formState, setFormState] = useState({ firstname: "", lastname: "", email: "", company: "", phone: "", message: "", budget: "" });
 	const [errorFields, setErrorFields] = useState([]);
 	const [api, contextHolder] = notification.useNotification();
 
@@ -73,7 +73,7 @@ export default function ContactForm() {
 			}
 		}
 
-		setFormState({ firstName: "", lastName: "", email: "", company: "", phone: "", message: "", budget: "" });
+		setFormState({ firstname: "", lastname: "", email: "", company: "", phone: "", message: "", budget: "" });
 	};
 
 	return (
@@ -89,25 +89,25 @@ export default function ContactForm() {
 					<div className="relative mt-2 rounded-md shadow-sm">
 						<input
 							type="text"
-							name="firstName"
+							name="firstname"
 							id="first-name"
 							autoComplete="given-name"
 							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("firstName")
+								errorFields.includes("firstname")
 									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.firstName !== ""
+									: formState.firstname !== ""
 									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
 									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 							}`}
 							placeholder="Jean"
-							value={formState.firstName}
+							value={formState.firstname}
 							onChange={handleChange}
 						/>
 						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("firstName") && formState.firstName !== "" && (
+							{!errorFields.includes("firstname") && formState.firstname !== "" && (
 								<CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
 							)}
-							{errorFields.includes("firstName") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
+							{errorFields.includes("firstname") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
 						</div>
 					</div>
 				</div>
@@ -121,25 +121,25 @@ export default function ContactForm() {
 					<div className="relative mt-2 rounded-md shadow-sm">
 						<input
 							type="text"
-							name="lastName"
+							name="lastname"
 							id="last-name"
 							autoComplete="family-name"
 							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("lastName")
+								errorFields.includes("lastname")
 									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.lastName !== ""
+									: formState.lastname !== ""
 									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
 									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 							}`}
 							placeholder="Dupont"
-							value={formState.lastName}
+							value={formState.lastname}
 							onChange={handleChange}
 						/>
 						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("lastName") && formState.lastName !== "" && (
+							{!errorFields.includes("lastname") && formState.lastname !== "" && (
 								<CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
 							)}
-							{errorFields.includes("lastName") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
+							{errorFields.includes("lastname") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
 						</div>
 					</div>
 				</div>
