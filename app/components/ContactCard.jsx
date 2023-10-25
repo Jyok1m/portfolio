@@ -5,9 +5,9 @@ export default function ContactCard() {
 		<div className="relative bg-[#c5d1e7] mt-4 rounded-lg">
 			<div className="lg:absolute lg:inset-0 lg:left-1/2">
 				<img
-					className="h-64 w-full bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full rounded-r-lg"
-					src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
-					alt=""
+					className="h-64 bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full rounded-r-lg"
+					src="/pic_la_capsule.png"
+					alt="Photo collaboration à La Capsule"
 				/>
 			</div>
 			<div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">

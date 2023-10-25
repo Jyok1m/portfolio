@@ -8,7 +8,6 @@ const inquirySchema = new Schema(
 		company: String,
 		phone: String,
 		message: String,
-		budget: String,
 	},
 	{ timestamps: true }
 );

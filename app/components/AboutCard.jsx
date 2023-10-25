@@ -51,7 +51,7 @@ export default function AboutCard() {
 					</div>
 					<img
 						src="/profile_pic.jpeg"
-						alt=""
+						alt="Joachim Jasmin"
 						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-20"
 					/>
 				</div>

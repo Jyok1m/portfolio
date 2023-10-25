@@ -1,83 +1,57 @@
 "use client";
 
-import React, { useState } from "react";
-import { ExclamationCircleIcon, CheckCircleIcon } from "@heroicons/react/20/solid";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import { emailRegex, phoneRegex, stringRegex } from "@/utils/modules/regex";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { notification } from "antd";
 
 export default function ContactForm() {
-	const [formState, setFormState] = useState({ firstname: "", lastname: "", email: "", company: "", phone: "", message: "", budget: "" });
-	const [errorFields, setErrorFields] = useState([]);
 	const [api, contextHolder] = notification.useNotification();
 
-	const openNotification = (success = false) => {
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm();
+
+	const openNotification = (status = "error") => {
 		api.open({
-			message: success ? "Message envoyé !" : "Erreur lors de l'envoi du message...",
-			description: success
-				? "Merci pour votre message. Je reviendrai vers vous le plus rapidement possible !"
-				: "Merci de corriger vos champs et de réessayer.",
+			message: status === "success" ? "Message envoyé !" : "Erreur lors de l'envoi du message...",
+			description:
+				status === "success"
+					? "Merci pour votre message. Je reviendrai vers vous le plus rapidement possible !"
+					: "Merci de corriger vos champs et de réessayer.",
 			icon: (
 				<>
-					{success && <CheckCircleOutlined style={{ color: "green" }} />}
-					{!success && <CloseCircleOutlined style={{ color: "red" }} />}
+					{status === "success" && <CheckCircleOutlined style={{ color: "green" }} />}
+					{status !== "success" && <CloseCircleOutlined style={{ color: "red" }} />}
 				</>
 			),
 		});
 	};
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
+	const onSubmit = async (form) => {
+		const res = await fetch("../api/inquiries/new", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(form),
+		});
 
-		switch (name) {
-			case "email":
-				if (emailRegex.test(value) || value === "") {
-					setErrorFields(errorFields.filter((field) => field !== "email"));
-				} else {
-					setErrorFields(errorFields.concat("email"));
-				}
-				break;
-			case "phone":
-				if (phoneRegex.test(value) || value === "") {
-					setErrorFields(errorFields.filter((field) => field !== "phone"));
-				} else {
-					setErrorFields(errorFields.concat("phone"));
-				}
-				break;
-			case "message":
-				if (value.length <= 500) {
-					setErrorFields(errorFields.filter((field) => field !== "message"));
-				} else {
-					setErrorFields(errorFields.concat("message"));
-				}
-				break;
-			default:
-				if (stringRegex.test(value) || value === "") {
-					setErrorFields(errorFields.filter((field) => field !== name));
-				} else {
-					setErrorFields(errorFields.concat(name));
-				}
-				break;
+		if (res.status === 201) {
+			openNotification("success");
+			reset();
+		} else {
+			openNotification("error");
 		}
-
-		setFormState({ ...formState, [name]: value });
-	};
-
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		for (const key in formState) {
-			const value = formState[key];
-			if (errorFields.includes(key) || (!["company", "phone"].includes(key) && value === "")) {
-				return openNotification(false);
-			}
-		}
-
-		setFormState({ firstname: "", lastname: "", email: "", company: "", phone: "", message: "", budget: "" });
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="mt-16">
+		<form onSubmit={handleSubmit(onSubmit)} className="mt-16">
 			{contextHolder}
 			<div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 				{/* First name */}
@@ -86,30 +60,29 @@ export default function ContactForm() {
 					<label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
 						Prénom
 					</label>
-					<div className="relative mt-2 rounded-md shadow-sm">
+					<div className="relative mt-2 rounded-md">
 						<input
 							type="text"
 							name="firstname"
-							id="first-name"
+							id="firstname"
 							autoComplete="given-name"
-							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("firstname")
-									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.firstname !== ""
-									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
-									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
-							}`}
+							className={
+								"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+							}
 							placeholder="Jean"
-							value={formState.firstname}
-							onChange={handleChange}
+							aria-invalid={errors.firstname ? "true" : "false"}
+							{...register("firstname", {
+								required: { value: true, message: "Champ requis." },
+								pattern: { value: stringRegex, message: "Prénom invalide." },
+							})}
 						/>
-						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("firstname") && formState.firstname !== "" && (
-								<CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
-							)}
-							{errorFields.includes("firstname") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
-						</div>
+						{errors.firstname && (
+							<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+								<ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+							</div>
+						)}
 					</div>
+					{errors.firstname && <span className="text-red-500 text-sm">{errors.firstname.message}</span>}
 				</div>
 
 				{/* Last name */}
@@ -118,30 +91,29 @@ export default function ContactForm() {
 					<label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
 						Nom de famille
 					</label>
-					<div className="relative mt-2 rounded-md shadow-sm">
+					<div className="relative mt-2 rounded-md">
 						<input
 							type="text"
 							name="lastname"
-							id="last-name"
+							id="lastname"
 							autoComplete="family-name"
-							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("lastname")
-									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.lastname !== ""
-									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
-									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
-							}`}
+							className={
+								"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+							}
 							placeholder="Dupont"
-							value={formState.lastname}
-							onChange={handleChange}
+							aria-invalid={errors.lastname ? "true" : "false"}
+							{...register("lastname", {
+								required: { value: true, message: "Champ requis." },
+								pattern: { value: stringRegex, message: "Nom de famille invalide." },
+							})}
 						/>
-						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("lastname") && formState.lastname !== "" && (
-								<CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
-							)}
-							{errorFields.includes("lastname") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
-						</div>
+						{errors.lastname && (
+							<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+								<ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+							</div>
+						)}
 					</div>
+					{errors.lastname && <span className="text-red-500 text-sm">{errors.lastname.message}</span>}
 				</div>
 
 				{/* Email */}
@@ -150,28 +122,29 @@ export default function ContactForm() {
 					<label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
 						Email
 					</label>
-					<div className="relative mt-2 rounded-md shadow-sm">
+					<div className="relative mt-2 rounded-md">
 						<input
 							id="email"
 							name="email"
 							type="email"
 							autoComplete="email"
-							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("email")
-									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.email !== ""
-									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
-									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
-							}`}
+							className={
+								"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+							}
 							placeholder="jean.dupont@jeandupont.fr"
-							value={formState.email}
-							onChange={handleChange}
+							aria-invalid={errors.email ? "true" : "false"}
+							{...register("email", {
+								required: { value: true, message: "Champ requis." },
+								pattern: { value: emailRegex, message: "Email invalide." },
+							})}
 						/>
-						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("email") && formState.email !== "" && <CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />}
-							{errorFields.includes("email") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
-						</div>
+						{errors.email && (
+							<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+								<ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+							</div>
+						)}
 					</div>
+					{errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
 				</div>
 
 				{/* Company */}
@@ -181,7 +154,7 @@ export default function ContactForm() {
 						<label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
 							Entreprise
 						</label>
-						<p id="phone-description" className="text-gray-400">
+						<p id="company-description" className="text-gray-400">
 							Optionnel
 						</p>
 					</div>
@@ -191,24 +164,23 @@ export default function ContactForm() {
 							name="company"
 							id="company"
 							autoComplete="organization"
-							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("company")
-									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.company !== ""
-									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
-									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
-							}`}
+							className={
+								"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+							}
 							placeholder="Jean Dupont SARL"
-							value={formState.company}
-							onChange={handleChange}
+							aria-invalid={errors.company ? "true" : "false"}
+							{...register("company", {
+								required: { value: false },
+								pattern: { value: stringRegex, message: "Nom d'entreprise invalide." },
+							})}
 						/>
-						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("company") && formState.company !== "" && (
-								<CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
-							)}
-							{errorFields.includes("company") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
-						</div>
+						{errors.company && (
+							<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+								<ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+							</div>
+						)}
 					</div>
+					{errors.company && <span className="text-red-500 text-sm">{errors.company.message}</span>}
 				</div>
 
 				{/* Phone */}
@@ -225,7 +197,7 @@ export default function ContactForm() {
 					<div className="relative mt-2 rounded-md shadow-sm">
 						<div className="absolute inset-y-0 left-0 flex items-center">
 							<label htmlFor="country" className="sr-only">
-								Country
+								Pays
 							</label>
 							<select
 								id="country"
@@ -241,22 +213,23 @@ export default function ContactForm() {
 							name="phone"
 							id="phone"
 							autoComplete="tel"
-							className={`block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("phone")
-									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.phone !== ""
-									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
-									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
-							}`}
+							className={
+								"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+							}
 							placeholder="0123456789"
-							value={formState.phone}
-							onChange={handleChange}
+							aria-invalid={errors.phone ? "true" : "false"}
+							{...register("phone", {
+								required: { value: false },
+								pattern: { value: phoneRegex, message: "Numéro de téléphone invalide." },
+							})}
 						/>
-						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("phone") && formState.phone !== "" && <CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />}
-							{errorFields.includes("phone") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
-						</div>
+						{errors.phone && (
+							<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+								<ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+							</div>
+						)}
 					</div>
+					{errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
 				</div>
 
 				{/* Message */}
@@ -276,81 +249,24 @@ export default function ContactForm() {
 							name="message"
 							rows={4}
 							aria-describedby="message-description"
-							className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-								errorFields.includes("message")
-									? "text-red-900 ring-red-400 placeholder:text-red-400 focus:ring-red-600"
-									: formState.message !== ""
-									? "text-green-900 ring-green-400 placeholder:text-green-400 focus:ring-green-600"
-									: "text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
-							}`}
+							className={
+								"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+							}
 							placeholder="Décrivez votre projet ici..."
-							value={formState.message}
-							onChange={handleChange}
+							aria-invalid={errors.message ? "true" : "false"}
+							{...register("message", {
+								required: { value: true, message: "Champ requis." },
+								maxLength: { value: 500, message: "Message trop long." },
+							})}
 						/>
-						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-							{!errorFields.includes("message") && formState.message !== "" && (
-								<CheckCircleIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
-							)}
-							{errorFields.includes("message") && <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />}
-						</div>
+						{errors.message && (
+							<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+								<ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+							</div>
+						)}
 					</div>
+					{errors.message && <span className="text-red-500 text-sm">{errors.message.message}</span>}
 				</div>
-
-				{/* Budget */}
-
-				<fieldset className="sm:col-span-2">
-					<legend className="block text-sm font-semibold leading-6 text-gray-900">Quel est votre budget ?</legend>
-					<div className="mt-4 space-y-4 text-sm leading-6 text-gray-600">
-						<div className="flex gap-x-2.5">
-							<input
-								id="1k"
-								name="budget"
-								defaultValue="Moins de 1,000€"
-								type="radio"
-								className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-								checked={formState.budget === "Moins de 1,000€"}
-								onChange={handleChange}
-							/>
-							<label htmlFor="budget-under-25k">Moins de 1,000€</label>
-						</div>
-						<div className="flex gap-x-2.5">
-							<input
-								id="1k-3.5k"
-								name="budget"
-								defaultValue="Entre 1,000€ et 3,500€"
-								type="radio"
-								className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-								checked={formState.budget === "Entre 1,000€ et 3,500€"}
-								onChange={handleChange}
-							/>
-							<label htmlFor="budget-25k-50k">1,000€ - 3,500€</label>
-						</div>
-						<div className="flex gap-x-2.5">
-							<input
-								id="3.5k-6k"
-								name="budget"
-								defaultValue="Entre 3,500€ et 6,000€"
-								type="radio"
-								className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-								checked={formState.budget === "Entre 3,500€ et 6,000€"}
-								onChange={handleChange}
-							/>
-							<label htmlFor="budget-50k-100k">3,500€ – 6,000€</label>
-						</div>
-						<div className="flex gap-x-2.5">
-							<input
-								id="6k"
-								name="budget"
-								defaultValue="Plus de 6,000€"
-								type="radio"
-								className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-								checked={formState.budget === "Plus de 6,000€"}
-								onChange={handleChange}
-							/>
-							<label htmlFor="budget-over-100k">6,000€ +</label>
-						</div>
-					</div>
-				</fieldset>
 			</div>
 
 			{/* Button */}
