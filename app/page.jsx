@@ -1,13 +1,15 @@
-import AboutCard from "@/app/components/AboutCard";
-import ContactCard from "@/app/components/ContactCard";
-import Divider from "@/utils/components/Divider";
+import Intro from "@/app/components/Intro";
+import Photos from "@/app/components/Photos";
 
-export default function Home() {
+import { Container } from "@/app/components/Container";
+
+export default async function Home() {
 	return (
-		<main className="min-h-screen p-12">
-			<AboutCard />
-			<Divider title="Contact" />
-			<ContactCard />
-		</main>
+		<>
+			<Container className="mt-9">
+				<Intro />
+			</Container>
+			<Photos />
+		</>
 	);
 }

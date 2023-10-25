@@ -14,13 +14,16 @@
 		"@heroicons/react": "^2.0.18",
 		"@tailwindcss/forms": "^0.5.6",
 		"antd": "^5.10.2",
+		"clsx": "^2.0.0",
 		"dotenv": "^16.3.1",
 		"mongodb": "^6.2.0",
 		"mongoose": "^7.6.3",
 		"next": "13.5.6",
+		"next-themes": "^0.2.1",
 		"react": "^18",
 		"react-dom": "^18",
-		"react-hook-form": "^7.47.0"
+		"react-hook-form": "^7.47.0",
+		"typed.js": "^2.0.16"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10",

@@ -29,7 +29,7 @@ const timeline = [
 
 export default function AboutCard() {
 	return (
-		<div className="bg-[#a9badc] relative isolate -z-10 overflow-hidden rounded-lg mb-4">
+		<div className="bg-[#a9badc] relative isolate z-10 overflow-hidden rounded-lg mb-4">
 			<div
 				className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-25deg] bg-[#c5d1e7] shadow-xl shadow-indigo-600/10 ring-1 ring-[#c5d1e7] sm:-mr-80 lg:-mr-96"
 				aria-hidden="true"
@@ -50,7 +50,7 @@ export default function AboutCard() {
 						</p>
 					</div>
 					<img
-						src="/profile_pic.jpeg"
+						src="/images/profile/avatar.jpeg"
 						alt="Joachim Jasmin"
 						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-20"
 					/>

@@ -6,7 +6,7 @@ export default function ContactCard() {
 			<div className="lg:absolute lg:inset-0 lg:left-1/2">
 				<img
 					className="h-64 bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full rounded-r-lg"
-					src="/pic_la_capsule.png"
+					src="/images/pic_la_capsule.png"
 					alt="Photo collaboration à La Capsule"
 				/>
 			</div>
