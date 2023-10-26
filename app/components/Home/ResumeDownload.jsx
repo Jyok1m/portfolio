@@ -6,7 +6,7 @@ import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon";
 import Button from "@/app/components/Button";
 
 export default function ResumeDownload() {
-	const { download, error } = useDownloader();
+	const { download } = useDownloader();
 
 	const fileUrl = "/assets/CV-Joachim-Jasmin.pdf";
 	const filename = "CV Joachim Jasmin - 2023_2024.pdf";

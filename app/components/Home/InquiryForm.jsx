@@ -62,7 +62,7 @@ export default function InquiryForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} className="mt-16">
+			<form onSubmit={handleSubmit(onSubmit)} className="mt-10">
 				{contextHolder}
 				<div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 					{/* First name */}
