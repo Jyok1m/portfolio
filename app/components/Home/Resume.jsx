@@ -1,8 +1,7 @@
 import Image from "next/image";
-import BriefcaseIcon from "../Icons/BriefcaseIcon";
-import ArrowDownIcon from "../Icons/ArrowDownIcon";
+import BriefcaseIcon from "@/app/components/Icons/BriefcaseIcon";
 
-import Button from "@/app/components/Button";
+import ResumeDownload from "@/app/components/Home/ResumeDownload";
 
 function Role({ role }) {
 	let startLabel = typeof role.start === "string" ? role.start : role.start.label;
@@ -79,17 +78,7 @@ export default function Resume() {
 					<Role key={roleIndex} role={role} />
 				))}
 			</ol>
-			<Button
-				href="#"
-				variant="secondary"
-				className="mt-6 w-full"
-				title={
-					<>
-						Télécharger mon CV
-						<ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-					</>
-				}
-			/>
+			<ResumeDownload />
 		</div>
 	);
 }
