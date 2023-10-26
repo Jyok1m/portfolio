@@ -15,7 +15,7 @@ export default function ResumeDownload() {
 		<Button
 			onClick={() => download(fileUrl, filename)}
 			variant="secondary"
-			className="mt-6 w-full flex bg-zinc-100 hover:bg-[#0d1b2a]"
+			className="mt-6 w-full flex bg-zinc-700 hover:bg-[#0d1b2a]"
 			title={
 				<>
 					Télécharger mon CV

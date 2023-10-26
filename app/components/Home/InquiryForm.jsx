@@ -290,7 +290,7 @@ export default function InquiryForm() {
 				{/* Button */}
 
 				<div className="mt-10 flex justify-end pt-8 w-full">
-					<Button type="submit" className="ml-4 flex-none bg-zinc-100 hover:bg-[#0d1b2a]" title="Envoyer" loading={loading} />
+					<Button type="submit" className="ml-4 flex-none bg-zinc-700 hover:bg-[#0d1b2a]" title="Envoyer" loading={loading} />
 				</div>
 			</form>
 		</>
