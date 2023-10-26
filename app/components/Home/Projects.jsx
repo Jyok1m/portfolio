@@ -1,5 +1,5 @@
 import FileIcon from "../Icons/FileIcon";
-import { ArrowRightIcon, ArrowDownIcon } from "@heroicons/react/20/solid";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import ProjectDownload from "./ProjectDownload";
 
 import { projects } from "@/utils/static/projects";
@@ -30,12 +30,12 @@ export default function Projects() {
 								))}
 							</div>
 							<div className="relative max-w-xl">
-								<h3 className="mt-3 text-lg font-semibold leading-6 text-zinc-100">
+								<h3 className="mt-3 text-lg font-semibold leading-6 text-zinc-800 dark:text-zinc-100">
 									<a href={project.href} target="_blank">
 										{project.title}
 									</a>
 								</h3>
-								<p className="mt-5 text-sm leading-6 text-zinc-400">{project.description}</p>
+								<p className="mt-5 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{project.description}</p>
 								{project.href ? (
 									<a href={project.href} target="_blank" className="flex mt-5 h-8 hover:cursor-pointer" style={{ alignItems: "center" }}>
 										<p className="text-sm leading-6 text-zinc-100 hover:underline">Visiter le site</p>

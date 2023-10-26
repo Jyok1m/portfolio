@@ -68,7 +68,7 @@ export default function InquiryForm() {
 					{/* First name */}
 
 					<div>
-						<label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-zinc-100">
+						<label htmlFor="first-name" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
 							Prénom
 						</label>
 						<div className="relative mt-2 rounded-md">
@@ -79,7 +79,7 @@ export default function InquiryForm() {
 								autoComplete="given-name"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
 								placeholder="Jean"
 								aria-invalid={errors.firstname ? "true" : "false"}
@@ -100,7 +100,7 @@ export default function InquiryForm() {
 					{/* Last name */}
 
 					<div>
-						<label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-zinc-100">
+						<label htmlFor="last-name" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
 							Nom de famille
 						</label>
 						<div className="relative mt-2 rounded-md">
@@ -111,7 +111,7 @@ export default function InquiryForm() {
 								autoComplete="family-name"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
 								placeholder="Dupont"
 								aria-invalid={errors.lastname ? "true" : "false"}
@@ -132,7 +132,7 @@ export default function InquiryForm() {
 					{/* Email */}
 
 					<div className="sm:col-span-2">
-						<label htmlFor="email" className="block text-sm font-semibold leading-6 text-zinc-100">
+						<label htmlFor="email" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
 							Email
 						</label>
 						<div className="relative mt-2 rounded-md">
@@ -143,7 +143,7 @@ export default function InquiryForm() {
 								autoComplete="email"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
 								placeholder="jean.dupont@jeandupont.fr"
 								aria-invalid={errors.email ? "true" : "false"}
@@ -165,7 +165,7 @@ export default function InquiryForm() {
 
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
-							<label htmlFor="company" className="block text-sm font-semibold leading-6 text-zinc-100">
+							<label htmlFor="company" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
 								Entreprise
 							</label>
 							<p id="company-description" className="text-gray-400">
@@ -180,7 +180,7 @@ export default function InquiryForm() {
 								autoComplete="organization"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
 								placeholder="Jean Dupont SARL"
 								aria-invalid={errors.company ? "true" : "false"}
@@ -202,7 +202,7 @@ export default function InquiryForm() {
 
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
-							<label htmlFor="phone" className="block font-semibold text-zinc-100">
+							<label htmlFor="phone" className="block font-semibold dark:text-zinc-100 text-zinc-800">
 								Numéro de téléphone
 							</label>
 							<p id="phone-description" className="text-gray-400">
@@ -231,7 +231,7 @@ export default function InquiryForm() {
 								autoComplete="tel"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
+									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
 								placeholder="0123456789"
 								aria-invalid={errors.phone ? "true" : "false"}
@@ -253,7 +253,7 @@ export default function InquiryForm() {
 
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
-							<label htmlFor="message" className="block text-sm font-semibold leading-6 text-zinc-100">
+							<label htmlFor="message" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
 								Message
 							</label>
 							<p id="message-description" className="text-gray-400">
@@ -268,7 +268,7 @@ export default function InquiryForm() {
 								aria-describedby="message-description"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
 								placeholder="Décrivez votre projet ici..."
 								aria-invalid={errors.message ? "true" : "false"}
