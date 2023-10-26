@@ -239,7 +239,7 @@ export default function InquiryForm() {
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
 							<label htmlFor="message" className="block text-sm font-semibold leading-6 text-zinc-100">
-								Comment puis-je vous aider ?
+								Message
 							</label>
 							<p id="message-description" className="text-gray-400">
 								Max 500 caractères
