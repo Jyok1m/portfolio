@@ -1,15 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import { emailRegex, phoneRegex, stringRegex } from "@/utils/modules/regex";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { notification } from "antd";
-import { Button } from "../Button";
+import Button from "../Button";
 
 export default function InquiryForm() {
 	const [api, contextHolder] = notification.useNotification();
+	const [loading, setLoading] = useState(false);
 
 	const {
 		register,
@@ -24,7 +25,7 @@ export default function InquiryForm() {
 			description:
 				status === "success"
 					? "Merci pour votre message. Je reviendrai vers vous le plus rapidement possible !"
-					: "Merci de corriger vos champs et de réessayer.",
+					: "Une erreur est survenue... Merci de réessayer plus tard.",
 			icon: (
 				<>
 					{status === "success" && <CheckCircleOutlined style={{ color: "green" }} />}
@@ -35,19 +36,27 @@ export default function InquiryForm() {
 	};
 
 	const onSubmit = async (form) => {
-		const res = await fetch("../api/inquiries/new", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(form),
-		});
+		setLoading(true);
 
-		if (res.status === 201) {
-			openNotification("success");
-			reset();
-		} else {
+		try {
+			const res = await fetch("../api/inquiries/new", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(form),
+			});
+
+			if (res.status === 201) {
+				openNotification("success");
+				reset();
+			} else {
+				openNotification("error");
+			}
+		} catch (error) {
 			openNotification("error");
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -68,6 +77,7 @@ export default function InquiryForm() {
 								name="firstname"
 								id="firstname"
 								autoComplete="given-name"
+								disabled={loading}
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 								}
@@ -99,6 +109,7 @@ export default function InquiryForm() {
 								name="lastname"
 								id="lastname"
 								autoComplete="family-name"
+								disabled={loading}
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 								}
@@ -130,6 +141,7 @@ export default function InquiryForm() {
 								name="email"
 								type="email"
 								autoComplete="email"
+								disabled={loading}
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 								}
@@ -166,6 +178,7 @@ export default function InquiryForm() {
 								name="company"
 								id="company"
 								autoComplete="organization"
+								disabled={loading}
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 								}
@@ -205,6 +218,7 @@ export default function InquiryForm() {
 									id="country"
 									name="country"
 									autoComplete="country"
+									disabled={loading}
 									className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
 								>
 									<option>FR</option>
@@ -215,6 +229,7 @@ export default function InquiryForm() {
 								name="phone"
 								id="phone"
 								autoComplete="tel"
+								disabled={loading}
 								className={
 									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 								}
@@ -251,6 +266,7 @@ export default function InquiryForm() {
 								name="message"
 								rows={4}
 								aria-describedby="message-description"
+								disabled={loading}
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
 								}
@@ -274,9 +290,7 @@ export default function InquiryForm() {
 				{/* Button */}
 
 				<div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
-					<Button type="submit" className="ml-4 flex-none">
-						Envoyer
-					</Button>
+					<Button type="submit" className="ml-4 flex-none" title="Envoyer" loading={loading} />
 				</div>
 			</form>
 		</>
