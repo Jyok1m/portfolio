@@ -4,23 +4,23 @@ import clsx from "clsx";
 
 const photos = [
 	{
-		src: "/images/photos/in-flight-shot.jpeg",
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/a97wc9rfuinvswgu0hng.jpg",
 		alt: "Photo prise de l'intérieur d'un avion",
 	},
 	{
-		src: "/images/photos/food-pic.jpeg",
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/uts5rvgx25zirt5znyly.jpg",
 		alt: "Photo de poulet à la sauce aigre-douce",
 	},
 	{
-		src: "/images/photos/vs-code-pic.jpeg",
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/kockgbiobckq0agaahod.jpg",
 		alt: "Photo de VS Code",
 	},
 	{
-		src: "/images/photos/pic-la-capsule.png",
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/epdhrdvgkmnkp44jyeyy.png",
 		alt: "Photo d'un moment de mentorat à La Capsule",
 	},
 	{
-		src: "/images/photos/rugby-pic.jpeg",
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/tfvnmybnbkavfaxnc01q.jpg",
 		alt: "Photo à la coupe du monde de rugby 2023 au Stade de France",
 	},
 ];

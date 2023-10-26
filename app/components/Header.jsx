@@ -145,8 +145,8 @@ function Avatar({ large = false, className, ...props }) {
 	return (
 		<Link href="/" aria-label="Home" className={clsx(className, "pointer-events-auto")} {...props}>
 			<img
-				src="/images/profile/avatar.jpeg"
-				alt=""
+				src="https://res.cloudinary.com/tablee/image/upload/v1698308836/Portfolio/gz1gi1t8zpblm6i2savl.png"
+				alt="Avatar de Joachim Jasmin"
 				sizes={large ? "4rem" : "2.25rem"}
 				className={clsx("rounded-full bg-zinc-100 object-cover dark:bg-zinc-800", large ? "h-16 w-16" : "h-9 w-9")}
 			/>

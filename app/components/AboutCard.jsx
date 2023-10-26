@@ -50,7 +50,7 @@ export default function AboutCard() {
 						</p>
 					</div>
 					<img
-						src="/images/profile/avatar.jpeg"
+						src="https://res.cloudinary.com/tablee/image/upload/v1698308836/Portfolio/gz1gi1t8zpblm6i2savl.png"
 						alt="Joachim Jasmin"
 						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-20"
 					/>

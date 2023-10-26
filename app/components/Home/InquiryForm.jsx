@@ -79,7 +79,7 @@ export default function InquiryForm() {
 								autoComplete="given-name"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
 								}
 								placeholder="Jean"
 								aria-invalid={errors.firstname ? "true" : "false"}
@@ -111,7 +111,7 @@ export default function InquiryForm() {
 								autoComplete="family-name"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
 								}
 								placeholder="Dupont"
 								aria-invalid={errors.lastname ? "true" : "false"}
@@ -143,7 +143,7 @@ export default function InquiryForm() {
 								autoComplete="email"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
 								}
 								placeholder="jean.dupont@jeandupont.fr"
 								aria-invalid={errors.email ? "true" : "false"}
@@ -180,7 +180,7 @@ export default function InquiryForm() {
 								autoComplete="organization"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
 								}
 								placeholder="Jean Dupont SARL"
 								aria-invalid={errors.company ? "true" : "false"}
@@ -219,7 +219,7 @@ export default function InquiryForm() {
 									name="country"
 									autoComplete="country"
 									disabled={loading}
-									className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+									className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm bg-[#d7d7da]"
 								>
 									<option>FR</option>
 								</select>
@@ -231,7 +231,7 @@ export default function InquiryForm() {
 								autoComplete="tel"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
 								}
 								placeholder="0123456789"
 								aria-invalid={errors.phone ? "true" : "false"}
@@ -268,7 +268,7 @@ export default function InquiryForm() {
 								aria-describedby="message-description"
 								disabled={loading}
 								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600"
+									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 bg-[#d7d7da]"
 								}
 								placeholder="Décrivez votre projet ici..."
 								aria-invalid={errors.message ? "true" : "false"}
@@ -289,8 +289,8 @@ export default function InquiryForm() {
 
 				{/* Button */}
 
-				<div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
-					<Button type="submit" className="ml-4 flex-none" title="Envoyer" loading={loading} />
+				<div className="mt-10 flex justify-end pt-8 w-full">
+					<Button type="submit" className="ml-4 flex-none bg-zinc-100 hover:bg-[#0d1b2a]" title="Envoyer" loading={loading} />
 				</div>
 			</form>
 		</>
