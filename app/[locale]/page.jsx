@@ -6,7 +6,7 @@ import Inquiry from "@server-components/home/Inquiry";
 
 import { Container } from "@global-components/Container";
 
-export default async function Home() {
+export default function Home() {
 	return (
 		<>
 			<Container className="mt-9">

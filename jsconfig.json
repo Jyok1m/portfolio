@@ -5,7 +5,7 @@
 			"@client-components/*": ["./components/client/*"],
 			"@server-components/*": ["./components/server/*"],
 			"@global-components/*": ["./components/global/*"],
-			"@static": ["./static/data.js"],
+			"@static": ["./static/data.js"]
 		}
 	}
 }

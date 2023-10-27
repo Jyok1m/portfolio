@@ -3,12 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
 
-export default function IntroTitle() {
+export default function IntroTitle({ title, passions }) {
 	const el = useRef(null);
 
 	useEffect(() => {
 		const typed = new Typed(el.current, {
-			strings: ["cuistot amateur", "passionné de jeux vidéos", "pilote de ligne virtuel", "fan de rugby", "amateur de bonne bière"],
+			strings: passions,
 			startDelay: 300,
 			typeSpeed: 100,
 			backSpeed: 50,
@@ -23,7 +23,7 @@ export default function IntroTitle() {
 
 	return (
 		<h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl" style={{ height: 160 }}>
-			Développeur full-stack, teacher et <span ref={el} className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl" />.
+			{title} <span ref={el} className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl" />.
 		</h1>
 	);
 }

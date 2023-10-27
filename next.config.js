@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withNextIntl = require("next-intl/plugin")("./i18n.js");
+
+module.exports = withNextIntl({
 	reactStrictMode: false,
 	images: {
 		domains: ["res.cloudinary.com"],
 	},
-	i18n: {
-		locales: ["fr"],
-		defaultLocale: "fr",
-	},
-};
-
-module.exports = nextConfig;
+});

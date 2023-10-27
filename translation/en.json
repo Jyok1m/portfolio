@@ -1,0 +1,16 @@
+{
+	"HeaderFooter": {
+		"about": "About",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"Intro": {
+		"title": "Full-stack developer, teacher and",
+		"cooking": "amateur chef",
+		"video games": "video game enthusiast",
+		"aviation": "virtual airline pilot",
+		"rugby": "rugby fan",
+		"beer": "lover of good beer",
+		"bio": "Hello world, it's Joachim! Whether I'm deep in code or on a culinary quest discovering new flavors, my skill set is diverse. As a passionate full-stack developer and educator, I craft tailor-made digital solutions for a range of clients, all while spicing up my life with some culinary delights and thrilling adventures! 🚀🍲🌍"
+	}
+}
