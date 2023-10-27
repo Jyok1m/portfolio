@@ -60,9 +60,9 @@ function MoonIcon(props) {
 function MobileNavItem({ href, children }) {
 	return (
 		<li>
-			<Link href={href} scroll shallow>
+			<a href={href} scroll shallow>
 				<Popover.Button className="block py-2 w-full text-left">{children}</Popover.Button>
-			</Link>
+			</a>
 		</li>
 	);
 }
@@ -121,7 +121,7 @@ function NavItem({ href, children }) {
 
 	return (
 		<li className="w-28 flex justify-center">
-			<Link
+			<a
 				href={href}
 				className={clsx(
 					"relative block px-3 py-2 transition",
@@ -132,7 +132,7 @@ function NavItem({ href, children }) {
 				{isActive && (
 					<span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
 				)}
-			</Link>
+			</a>
 		</li>
 	);
 }
