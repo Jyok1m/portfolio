@@ -1,10 +1,10 @@
-import Intro from "@/app/components/Home/Intro";
-import Photos from "@/app/components/Home/Photos";
-import Resume from "@/app/components/Home/Resume";
-import Projects from "@/app/components/Home/Projects";
-import Inquiry from "@/app/components/Home/Inquiry";
+import Intro from "@server-components/home/Intro";
+import Photos from "@server-components/home/Photos";
+import Resume from "@server-components/home/Resume";
+import Projects from "@server-components/home/Projects";
+import Inquiry from "@server-components/home/Inquiry";
 
-import { Container } from "@/app/components/Container";
+import { Container } from "@global-components/Container";
 
 export default async function Home() {
 	return (

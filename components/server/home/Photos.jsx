@@ -2,28 +2,7 @@ import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-const photos = [
-	{
-		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/a97wc9rfuinvswgu0hng.jpg",
-		alt: "Photo prise de l'intérieur d'un avion",
-	},
-	{
-		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/uts5rvgx25zirt5znyly.jpg",
-		alt: "Photo de poulet à la sauce aigre-douce",
-	},
-	{
-		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/kockgbiobckq0agaahod.jpg",
-		alt: "Photo de VS Code",
-	},
-	{
-		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/epdhrdvgkmnkp44jyeyy.png",
-		alt: "Photo d'un moment de mentorat à La Capsule",
-	},
-	{
-		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/tfvnmybnbkavfaxnc01q.jpg",
-		alt: "Photo à la coupe du monde de rugby 2023 au Stade de France",
-	},
-];
+import { photos } from "@static";
 
 export default function Photos() {
 	let rotations = ["rotate-2", "-rotate-2", "rotate-2", "rotate-2", "-rotate-2"];

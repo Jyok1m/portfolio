@@ -1,9 +1,9 @@
 import Image from "next/image";
-import BriefcaseIcon from "@/app/components/Icons/BriefcaseIcon";
+import { BriefcaseIcon } from "@heroicons/react/20/solid";
 
-import ResumeDownload from "@/app/components/Home/ResumeDownload";
+import ResumeDownload from "@/components/client/home/ResumeDownloader";
 
-import { resume } from "@/utils/static/resume";
+import { resume } from "@static";
 
 function Role({ role }) {
 	let startLabel = typeof role.start === "string" ? role.start : role.start.label;
@@ -35,7 +35,7 @@ export default function Resume() {
 	return (
 		<div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
 			<h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-				<BriefcaseIcon className="h-6 w-6 flex-none" />
+				<BriefcaseIcon className="h-6 w-6 flex-none fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500" />
 				<span className="ml-3">Expériences professionnelles</span>
 			</h2>
 			<ol className="mt-10 space-y-4">

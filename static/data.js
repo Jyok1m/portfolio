@@ -1,3 +1,26 @@
+export const photos = [
+	{
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/a97wc9rfuinvswgu0hng.jpg",
+		alt: "Photo prise de l'intérieur d'un avion",
+	},
+	{
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/uts5rvgx25zirt5znyly.jpg",
+		alt: "Photo de poulet à la sauce aigre-douce",
+	},
+	{
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/kockgbiobckq0agaahod.jpg",
+		alt: "Photo de VS Code",
+	},
+	{
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/epdhrdvgkmnkp44jyeyy.png",
+		alt: "Photo d'un moment de mentorat à La Capsule",
+	},
+	{
+		src: "https://res.cloudinary.com/tablee/image/upload/v1698308824/Portfolio/tfvnmybnbkavfaxnc01q.jpg",
+		alt: "Photo à la coupe du monde de rugby 2023 au Stade de France",
+	},
+];
+
 export const projects = [
 	{
 		title: "Joachim Jasmin - Portfolio",
@@ -40,5 +63,42 @@ export const projects = [
 		date: "2021",
 		datetime: "2021-12-20",
 		categories: [{ title: "Visual Basic" }],
+	},
+];
+
+export const resume = [
+	{
+		company: "La Capsule",
+		title: "Développeur Full-Stack et Teacher Assistant",
+		logo: "/images/logos/la-capsule.png",
+		start: "2023",
+		end: {
+			label: "Aujourd'hui",
+			dateTime: new Date().getFullYear().toString(),
+		},
+	},
+	{
+		company: "Tablée",
+		title: "Fondateur et CTO",
+		logo: "/images/logos/tablee.png",
+		start: "2023",
+		end: {
+			label: "Aujourd'hui",
+			dateTime: new Date().getFullYear().toString(),
+		},
+	},
+	{
+		company: "Park Hyatt Paris-Vendôme",
+		title: "Corporate Leadership Training en Finance",
+		logo: "/images/logos/hyatt.svg",
+		start: "2022",
+		end: "2022",
+	},
+	{
+		company: "Mandarin Oriental Hyde Park",
+		title: "Auditeur Interne",
+		logo: "/images/logos/mandarin-oriental.svg",
+		start: "2020",
+		end: "2021",
 	},
 ];

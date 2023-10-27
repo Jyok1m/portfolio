@@ -1,7 +1,12 @@
 {
 	"compilerOptions": {
 		"paths": {
-			"@/*": ["./*"]
+			"@/*": ["./*"],
+			"@client-components/*": ["./components/client/*"],
+			"@server-components/*": ["./components/server/*"],
+			"@global-components/*": ["./components/global/*"],
+			"@static": ["./static/data.js"],
+			"@database": ["./database/*"]
 		}
 	}
 }

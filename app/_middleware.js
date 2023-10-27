@@ -1,5 +1,5 @@
 import { NextMiddleware } from "next/server";
-import connectToDB from "@/server/connection";
+import connectToDB from "@/database/connection";
 
 export async function middleware(req) {
 	// Check if a connection is already established

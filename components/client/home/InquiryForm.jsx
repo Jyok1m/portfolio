@@ -2,11 +2,10 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
-import { emailRegex, phoneRegex, stringRegex } from "@/utils/modules/regex";
-import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { ExclamationCircleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { notification } from "antd";
-import Button from "../Button";
+import Button from "@global-components/Button";
+import { emailRegex, phoneRegex, stringRegex } from "@/utils/regex";
 
 export default function InquiryForm() {
 	const [api, contextHolder] = notification.useNotification();
@@ -28,8 +27,8 @@ export default function InquiryForm() {
 					: "Une erreur est survenue... Merci de réessayer plus tard.",
 			icon: (
 				<>
-					{status === "success" && <CheckCircleOutlined style={{ color: "green" }} />}
-					{status !== "success" && <CloseCircleOutlined style={{ color: "red" }} />}
+					{status === "success" && <CheckCircleIcon style={{ color: "green" }} />}
+					{status !== "success" && <XCircleIcon style={{ color: "red" }} />}
 				</>
 			),
 		});

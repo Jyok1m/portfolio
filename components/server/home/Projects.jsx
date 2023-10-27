@@ -1,14 +1,12 @@
-import FileIcon from "../Icons/FileIcon";
-import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import ProjectDownload from "./ProjectDownload";
-
-import { projects } from "@/utils/static/projects";
+import { ArrowRightIcon, DocumentTextIcon } from "@heroicons/react/20/solid";
+import ProjectDownloader from "@client-components/home/ProjectDownloader";
+import { projects } from "@static";
 
 export default function Projects() {
 	return (
 		<div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40" id="projets">
 			<h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-				<FileIcon className="h-6 w-6 flex-none" />
+				<DocumentTextIcon className="h-6 w-6 flex-none fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500" />
 				<span className="ml-3">Projets</span>
 			</h2>
 			<div className="mt-10 lg:flex lg:flex-wrap">
@@ -42,7 +40,7 @@ export default function Projects() {
 										<ArrowRightIcon className="h-5 w-5 ml-2 text-zinc-100" />
 									</a>
 								) : (
-									<ProjectDownload />
+									<ProjectDownloader />
 								)}
 							</div>
 						</div>

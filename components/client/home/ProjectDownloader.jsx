@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
 import useDownloader from "react-use-downloader";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 
-export default function ResumeDownload() {
+export default function ProjectDownloader() {
 	const { download } = useDownloader();
 
 	const fileUrl = "/assets/Skemanopoly.zip";

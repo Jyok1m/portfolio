@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectToDB from "@/server/connection";
-import Inquiry from "@/server/models/inquiries";
+import connectToDB from "@database/connection";
+import Inquiry from "@database/models/inquiries";
 import nodemailer from "nodemailer";
 
 export async function POST(request) {

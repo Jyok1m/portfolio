@@ -2,10 +2,10 @@
 
 import React from "react";
 import useDownloader from "react-use-downloader";
-import ArrowDownIcon from "@/app/components/Icons/ArrowDownIcon";
-import Button from "@/app/components/Button";
+import { ArrowDownIcon } from "@heroicons/react/20/solid";
+import Button from "@global-components/Button";
 
-export default function ResumeDownload() {
+export default function ResumeDownloader() {
 	const { download } = useDownloader();
 
 	const fileUrl = "/assets/CV-Joachim-Jasmin.pdf";
