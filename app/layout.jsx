@@ -1,4 +1,5 @@
 import "@/app/global.css";
+import { Analytics } from "@vercel/analytics/react";
 import { Providers } from "@/app/providers";
 
 import Header from "@global-components/Header";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
 				<Providers>
 					<MainLayout>{children}</MainLayout>
 				</Providers>
+				<Analytics />
 			</body>
 		</html>
 	);

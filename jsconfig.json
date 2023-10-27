@@ -6,7 +6,6 @@
 			"@server-components/*": ["./components/server/*"],
 			"@global-components/*": ["./components/global/*"],
 			"@static": ["./static/data.js"],
-			"@database": ["./database/*"]
 		}
 	}
 }
