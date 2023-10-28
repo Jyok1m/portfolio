@@ -37,7 +37,7 @@ export default function Projects() {
 								{project.href ? (
 									<a href={project.href} target="_blank" className="flex mt-5 h-8 hover:cursor-pointer" style={{ alignItems: "center" }}>
 										<p className="text-sm leading-6 text-zinc-800 dark:text-zinc-100 hover:underline">Visiter le site</p>
-										<ArrowRightIcon className="h-5 w-5 ml-2 text-zinc-100" />
+										<ArrowRightIcon className="h-5 w-5 ml-2 text-zinc-800 dark:text-zinc-100" />
 									</a>
 								) : (
 									<ProjectDownloader />
