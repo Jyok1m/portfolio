@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { useTranslations } from "next-intl";
 import { ContainerInner, ContainerOuter } from "@/components/global/Container";
 
 function NavLink({ href, children }) {
@@ -11,6 +11,7 @@ function NavLink({ href, children }) {
 }
 
 export default function Footer({ labels }) {
+	const t = useTranslations("HeaderFooter");
 	return (
 		<footer className=" mt-20 flex-none">
 			<ContainerOuter>
@@ -25,7 +26,7 @@ export default function Footer({ labels }) {
 								))}
 							</div>
 							<p className="text-sm text-zinc-400 dark:text-zinc-500">
-								&copy; {new Date().getFullYear()} Joachim Alexandre Jasmin. Tous droits réservés.
+								&copy; {new Date().getFullYear()} {t("copyright")}
 							</p>
 						</div>
 					</ContainerInner>

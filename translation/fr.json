@@ -2,7 +2,8 @@
 	"HeaderFooter": {
 		"about": "À propos",
 		"projects": "Projets",
-		"contact": "Me contacter"
+		"contact": "Me contacter",
+		"copyright": "Joachim Alexandre Jasmin. Tous droits réservés."
 	},
 	"Intro": {
 		"title": "Développeur full-stack, teacher et",
@@ -12,5 +13,52 @@
 		"rugby": "fan de rugby",
 		"beer": "amateur de bonne bière",
 		"bio": "Hello world, c'est Joachim! En plein dans le code ou à la conquête de nouvelles saveurs en cuisine, ma palette de talents est variée. Développeur full-stack et enseignant passionné, je crée des solutions numériques sur-mesure pour un éventail de clients, tout en pimentant ma vie avec quelques délices culinaires et voyages excitants ! 🚀🍲🌍"
+	},
+	"Projects": {
+		"title": "Projects",
+		"visitWebsite": "Voir le site",
+		"visitGithub": "Voir le Github",
+		"download": "Télécharger le Zip",
+		"portfolioDesc": "Ce portfolio est un projet personnel évolutif qui me permet de mettre en avant mes compétences et mes projets, tout en essayant de nouvelles technologies.",
+		"tableeDesc": "Tablée est une application de mise en relation entre professionnels CHR et étudiants en hôtellerie-restauration. Elle offre un accès à des missions ponctuelles et à des extras dans les établissements parisiens.",
+		"arianeDesc": "Ariane est la plateforme pédagogique de La Capsule. Elle permet aux étudiants de suivre leur progression, de consulter les cours et de réaliser les exercices.",
+		"skemaDesc": "Adaptation du jeu de Monopoly créé dans le cadre d'un projet d'études. Le jeu reprend les codes du Monopoly classique, mais avec des mécaniques personnalisées à Skema Business School."
+	},
+	"Resume": {
+		"title": "Expériences professionnelles",
+		"download": "Télécharger mon CV",
+		"capsule": "Développeur Full-Stack et Teacher Assistant",
+		"tablee": "Fondateur et CTO",
+		"hyatt": "Corporate Leadership Training en Finance",
+		"mandarinOriental": "Auditeur Interne"
+	},
+	"Contact": {
+		"title": "Me contacter",
+		"desc": "N'hésitez pas à me contacter si vous avez envie qu'on travaille ensemble pour l'un de vos projets!",
+		"firstname": "Prénom",
+		"firstnamePlaceholder": "Jean",
+		"lastname": "Nom",
+		"lastnamePlaceholder": "Dupont",
+		"email": "Email",
+		"emailPlaceholder": "jean.dupont@jeandupont.fr",
+		"company": "Entreprise",
+		"companyPlaceholder": "Jean Dupont Inc.",
+		"phone": "Téléphone",
+		"phonePlaceholderFR": "06 12 34 56 78",
+		"phonePlaceholderUK": "07123 456789",
+		"phonePlaceholderUS": "(012) 345-6789",
+		"message": "Message",
+		"messageLength": "Max 500 caractères",
+		"messagePlaceholder": "Décrivez-votre projet ici...",
+		"optional": "Optionnel",
+		"submit": "Envoyer",
+		"requiredField": "Champs obligatoires",
+		"invalidFirstname": "Prénom invalide",
+		"invalidLastname": "Nom invalide",
+		"invalidEmail": "Email invalide",
+		"invalidPhone": "Téléphone invalide",
+		"invalidMessage": "Votre message doit contenir moins de 500 caractères",
+		"successMessage": "Merci pour votre message. Je reviendrai vers vous le plus rapidement possible !",
+		"errorMessage": "Une erreur est survenue. Veuillez réessayer plus tard."
 	}
 }

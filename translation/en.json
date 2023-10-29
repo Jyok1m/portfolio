@@ -2,7 +2,8 @@
 	"HeaderFooter": {
 		"about": "About",
 		"projects": "Projects",
-		"contact": "Contact"
+		"contact": "Contact",
+		"copyright": "Joachim Alexandre Jasmin. All rights reserved."
 	},
 	"Intro": {
 		"title": "Full-stack developer, teacher and",
@@ -12,5 +13,52 @@
 		"rugby": "rugby fan",
 		"beer": "lover of good beer",
 		"bio": "Hello world, it's Joachim! Whether I'm deep in code or on a culinary quest discovering new flavors, my skill set is diverse. As a passionate full-stack developer and educator, I craft tailor-made digital solutions for a range of clients, all while spicing up my life with some culinary delights and thrilling adventures! 🚀🍲🌍"
+	},
+	"Projects": {
+		"title": "Projects",
+		"visitWebsite": "Visit website",
+		"visitGithub": "View the Github",
+		"download": "Download ZIP",
+		"portfolioDesc": "This portfolio is an evolving personal project that allows me to showcase my skills and projects, while trying out new technologies.",
+		"tableeDesc": "Tablée is an application connecting hospitality professionals with catering students. It provides access to occasional jobs and extras in Parisian establishments.",
+		"arianeDesc": "Ariane is the educational platform of La Capsule. It allows students to track their progress, consult the courses, and complete exercises.",
+		"skemaDesc": "Adaptation of the Monopoly game created as part of a study project. The game takes the classic Monopoly codes but with mechanics customized for Skema Business School."
+	},
+	"Resume": {
+		"title": "Professional Experiences",
+		"download": "Download my CV",
+		"capsule": "Full-Stack Developer and Assistant Teacher",
+		"tablee": "Founder and CTO",
+		"hyatt": "Corporate Leadership Training in Finance",
+		"mandarinOriental": "Internal Auditor"
+	},
+	"Contact": {
+		"title": "Contact Me",
+		"desc": "Feel free to contact me if you would like us to work together on one of your projects!",
+		"firstname": "First Name",
+		"firstnamePlaceholder": "John",
+		"lastname": "Last Name",
+		"lastnamePlaceholder": "Doe",
+		"email": "Email",
+		"emailPlaceholder": "john.doe@johndoe.com",
+		"company": "Company",
+		"companyPlaceholder": "John Doe Inc.",
+		"phone": "Phone",
+		"phonePlaceholderFR": "06 12 34 56 78",
+		"phonePlaceholderUK": "07123 456789",
+		"phonePlaceholderUS": "(012) 345-6789",
+		"message": "Message",
+		"messageLength": "Max 500 characters",
+		"messagePlaceholder": "Describe your project here...",
+		"optional": "Optional",
+		"submit": "Send",
+		"requiredField": "Required fields",
+		"invalidFirstname": "Invalid First Name",
+		"invalidLastname": "Invalid Last Name",
+		"invalidEmail": "Invalid Email",
+		"invalidPhone": "Invalid Phone",
+		"invalidMessage": "Your message must be not exceed 500 characters",
+		"successMessage": "Thank you for your message. I will get back to you as soon as possible!",
+		"errorMessage": "An error has occurred. Please try again later."
 	}
 }

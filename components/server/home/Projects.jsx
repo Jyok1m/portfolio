@@ -1,13 +1,15 @@
+import { useTranslations } from "next-intl";
 import { ArrowRightIcon, DocumentTextIcon } from "@heroicons/react/20/solid";
 import ProjectDownloader from "@client-components/home/ProjectDownloader";
 import { projects } from "@static";
 
 export default function Projects() {
+	const t = useTranslations("Projects");
 	return (
 		<div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40" id="projets">
 			<h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
 				<DocumentTextIcon className="h-6 w-6 flex-none fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500" />
-				<span className="ml-3">Projets</span>
+				<span className="ml-3">{t("title")}</span>
 			</h2>
 			<div className="mt-10 lg:flex lg:flex-wrap">
 				{projects.map((project, i) => (
@@ -33,14 +35,14 @@ export default function Projects() {
 										{project.title}
 									</a>
 								</h3>
-								<p className="mt-5 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{project.description}</p>
+								<p className="mt-5 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{t(project.description)}</p>
 								{project.href ? (
 									<a href={project.href} target="_blank" className="flex mt-5 h-8 hover:cursor-pointer" style={{ alignItems: "center" }}>
-										<p className="text-sm leading-6 text-zinc-800 dark:text-zinc-100 hover:underline">Visiter le site</p>
+										<p className="text-sm leading-6 text-zinc-800 dark:text-zinc-100 hover:underline">{t("visitWebsite")}</p>
 										<ArrowRightIcon className="h-5 w-5 ml-2 text-zinc-800 dark:text-zinc-100" />
 									</a>
 								) : (
-									<ProjectDownloader />
+									<ProjectDownloader downloadTranslation={t("download")} />
 								)}
 							</div>
 						</div>

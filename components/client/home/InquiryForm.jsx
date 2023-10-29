@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { ExclamationCircleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { notification } from "antd";
 import Button from "@global-components/Button";
-import { emailRegex, phoneRegex, stringRegex } from "@/utils/regex";
+import { emailRegex, phoneRegexFR, phoneRegexUS, phoneRegexUK, stringRegex } from "@/utils/regex";
 
-export default function InquiryForm() {
+export default function InquiryForm(props) {
 	const [api, contextHolder] = notification.useNotification();
 	const [loading, setLoading] = useState(false);
+	const [country, setCountry] = useState("FR");
 
 	const {
 		register,
@@ -21,10 +22,7 @@ export default function InquiryForm() {
 	const openNotification = (status = "error") => {
 		api.open({
 			message: status === "success" ? "Message envoyé !" : "Erreur lors de l'envoi du message...",
-			description:
-				status === "success"
-					? "Merci pour votre message. Je reviendrai vers vous le plus rapidement possible !"
-					: "Une erreur est survenue... Merci de réessayer plus tard.",
+			description: status === "success" ? props.successMessage : props.errorMessage,
 			icon: (
 				<>
 					{status === "success" && <CheckCircleIcon style={{ color: "green" }} />}
@@ -68,7 +66,7 @@ export default function InquiryForm() {
 
 					<div>
 						<label htmlFor="first-name" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
-							Prénom
+							{props.firstname}
 						</label>
 						<div className="relative mt-2 rounded-md">
 							<input
@@ -80,11 +78,11 @@ export default function InquiryForm() {
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
-								placeholder="Jean"
+								placeholder={props.firstnamePlaceholder}
 								aria-invalid={errors.firstname ? "true" : "false"}
 								{...register("firstname", {
-									required: { value: true, message: "Champ requis." },
-									pattern: { value: stringRegex, message: "Prénom invalide." },
+									required: { value: true, message: props.requiredField },
+									pattern: { value: stringRegex, message: props.invalidFirstname },
 								})}
 							/>
 							{errors.firstname && (
@@ -100,7 +98,7 @@ export default function InquiryForm() {
 
 					<div>
 						<label htmlFor="last-name" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
-							Nom de famille
+							{props.lastname}
 						</label>
 						<div className="relative mt-2 rounded-md">
 							<input
@@ -112,11 +110,11 @@ export default function InquiryForm() {
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
-								placeholder="Dupont"
+								placeholder={props.lastnamePlaceholder}
 								aria-invalid={errors.lastname ? "true" : "false"}
 								{...register("lastname", {
-									required: { value: true, message: "Champ requis." },
-									pattern: { value: stringRegex, message: "Nom de famille invalide." },
+									required: { value: true, message: props.requiredField },
+									pattern: { value: stringRegex, message: props.invalidLastname },
 								})}
 							/>
 							{errors.lastname && (
@@ -132,7 +130,7 @@ export default function InquiryForm() {
 
 					<div className="sm:col-span-2">
 						<label htmlFor="email" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
-							Email
+							{props.email}
 						</label>
 						<div className="relative mt-2 rounded-md">
 							<input
@@ -144,11 +142,11 @@ export default function InquiryForm() {
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
-								placeholder="jean.dupont@jeandupont.fr"
+								placeholder={props.emailPlaceholder}
 								aria-invalid={errors.email ? "true" : "false"}
 								{...register("email", {
-									required: { value: true, message: "Champ requis." },
-									pattern: { value: emailRegex, message: "Email invalide." },
+									required: { value: true, message: props.requiredField },
+									pattern: { value: emailRegex, message: props.invalidEmail },
 								})}
 							/>
 							{errors.email && (
@@ -165,10 +163,10 @@ export default function InquiryForm() {
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
 							<label htmlFor="company" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
-								Entreprise
+								{props.company}
 							</label>
 							<p id="company-description" className="text-gray-400">
-								Optionnel
+								{props.optional}
 							</p>
 						</div>
 						<div className="relative mt-2 rounded-md shadow-sm">
@@ -181,12 +179,9 @@ export default function InquiryForm() {
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
-								placeholder="Jean Dupont SARL"
+								placeholder={props.companyPlaceholder}
 								aria-invalid={errors.company ? "true" : "false"}
-								{...register("company", {
-									required: { value: false },
-									pattern: { value: stringRegex, message: "Nom d'entreprise invalide." },
-								})}
+								{...register("company", { required: { value: false } })}
 							/>
 							{errors.company && (
 								<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -202,10 +197,10 @@ export default function InquiryForm() {
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
 							<label htmlFor="phone" className="block font-semibold dark:text-zinc-100 text-zinc-800">
-								Numéro de téléphone
+								{props.phone}
 							</label>
 							<p id="phone-description" className="text-gray-400">
-								Optionnel
+								{props.optional}
 							</p>
 						</div>
 						<div className="relative mt-2 rounded-md shadow-sm">
@@ -218,9 +213,12 @@ export default function InquiryForm() {
 									name="country"
 									autoComplete="country"
 									disabled={loading}
+									onChange={(e) => setCountry(e.target.value)}
 									className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm bg-[#d7d7da]"
 								>
 									<option>FR</option>
+									<option>US</option>
+									<option>UK</option>
 								</select>
 							</div>
 							<input
@@ -232,11 +230,11 @@ export default function InquiryForm() {
 								className={
 									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
-								placeholder="0123456789"
+								placeholder={country === "FR" ? props.phonePlaceholderFR : country === "US" ? props.phonePlaceholderUS : props.phonePlaceholderUK}
 								aria-invalid={errors.phone ? "true" : "false"}
 								{...register("phone", {
 									required: { value: false },
-									pattern: { value: phoneRegex, message: "Numéro de téléphone invalide." },
+									pattern: { value: country === "FR" ? phoneRegexFR : country === "US" ? phoneRegexUS : phoneRegexUK, message: props.invalidPhone },
 								})}
 							/>
 							{errors.phone && (
@@ -253,10 +251,10 @@ export default function InquiryForm() {
 					<div className="sm:col-span-2">
 						<div className="flex justify-between text-sm leading-6">
 							<label htmlFor="message" className="block text-sm font-semibold leading-6 dark:text-zinc-100 text-zinc-800">
-								Message
+								{props.message}
 							</label>
 							<p id="message-description" className="text-gray-400">
-								Max 500 caractères
+								{props.messageLength}
 							</p>
 						</div>
 						<div className="relative mt-2 rounded-md shadow-sm">
@@ -269,11 +267,11 @@ export default function InquiryForm() {
 								className={
 									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
 								}
-								placeholder="Décrivez votre projet ici..."
+								placeholder={props.messagePlaceholder}
 								aria-invalid={errors.message ? "true" : "false"}
 								{...register("message", {
-									required: { value: true, message: "Champ requis." },
-									maxLength: { value: 500, message: "Message trop long." },
+									required: { value: true, message: props.requiredField },
+									maxLength: { value: 500, message: props.invalidMessage },
 								})}
 							/>
 							{errors.message && (
@@ -289,7 +287,7 @@ export default function InquiryForm() {
 				{/* Button */}
 
 				<div className="mt-10 flex justify-end pt-8 w-full">
-					<Button type="submit" className="ml-4 flex-none bg-zinc-700 hover:bg-[#0d1b2a]" title="Envoyer" loading={loading} />
+					<Button type="submit" className="ml-4 flex-none bg-zinc-700 hover:bg-[#0d1b2a]" title={props.submit} loading={loading} />
 				</div>
 			</form>
 		</>
