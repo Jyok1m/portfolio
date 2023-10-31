@@ -23,7 +23,7 @@ function MainLayout({ children }) {
 			<div className="relative flex w-full flex-col">
 				<Header
 					labels={keys.map((key) => {
-						return { label: t(key), href: key !== "about" ? `#/${key}` : "/#" };
+						return { label: t(key), href: key !== "about" ? `/#${key}` : "/#" };
 					})}
 				/>
 				<main className="flex-auto">{children}</main>

@@ -6,7 +6,7 @@ import { projects } from "@static";
 export default function Projects() {
 	const t = useTranslations("Projects");
 	return (
-		<div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40" id="projets">
+		<div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40" id="projects">
 			<h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
 				<DocumentTextIcon className="h-6 w-6 flex-none fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500" />
 				<span className="ml-3">{t("title")}</span>
