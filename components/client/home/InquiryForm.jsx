@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { ExclamationCircleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { notification } from "antd";
 import Button from "@global-components/Button";
-import { emailRegex, phoneRegexFR, phoneRegexUS, phoneRegexUK, stringRegex } from "@/utils/regex";
+import { emailRegex, phoneRegexFR, phoneRegexUS, phoneRegexUK, nameRegex } from "@/utils/regex";
 
 export default function InquiryForm(props) {
 	const [api, contextHolder] = notification.useNotification();
@@ -82,7 +82,7 @@ export default function InquiryForm(props) {
 								aria-invalid={errors.firstname ? "true" : "false"}
 								{...register("firstname", {
 									required: { value: true, message: props.requiredField },
-									pattern: { value: stringRegex, message: props.invalidFirstname },
+									pattern: { value: nameRegex, message: props.invalidFirstname },
 								})}
 							/>
 							{errors.firstname && (
@@ -114,7 +114,7 @@ export default function InquiryForm(props) {
 								aria-invalid={errors.lastname ? "true" : "false"}
 								{...register("lastname", {
 									required: { value: true, message: props.requiredField },
-									pattern: { value: stringRegex, message: props.invalidLastname },
+									pattern: { value: nameRegex, message: props.invalidLastname },
 								})}
 							/>
 							{errors.lastname && (
