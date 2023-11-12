@@ -5,11 +5,12 @@ import fieldValidator from "@/database/validators/fieldValidator";
 import { decryptValue } from "@/database/validators/encryption";
 
 export async function POST(request) {
-	try {
-		const { email, password } = await request.json();
+	const body = await request.json();
+	const { email, password } = body;
 
+	try {
 		// Validate fields:
-		const { result, error } = fieldValidator({ email, password });
+		const { result, error } = fieldValidator({ ...body });
 		if (!result) {
 			return NextResponse.json({ message: error }, { status: 400 });
 		}
