@@ -6,9 +6,9 @@ import normalise from "@/database/validators/normaliseString";
 import { encryptValue } from "@/database/validators/encryption";
 
 export async function POST(request) {
-	try {
-		const { firstname, lastname, email, password } = await request.json();
+	const { firstname, lastname, email, password } = await request.json();
 
+	try {
 		// Validate fields:
 		const { result, error } = fieldValidator({ firstname, lastname, email, password });
 		if (!result) {

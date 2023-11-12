@@ -1,4 +1,4 @@
-import { nameRegex, emailRegex, passwordRegex } from "@/utils/regex";
+import { nameRegex, emailRegex, passwordRegex, phoneRegexFR, phoneRegexUS, phoneRegexUK } from "@/utils/regex";
 
 export default function fieldValidator(body) {
 	for (const key in body) {
@@ -14,13 +14,20 @@ export default function fieldValidator(body) {
 		switch (key) {
 			case "firstname":
 			case "lastname":
+			case "company":
 				fieldIsValid = nameRegex.test(value);
+				break;
+			case "message":
+				fieldIsValid = value.length > 0;
 				break;
 			case "email":
 				fieldIsValid = emailRegex.test(value);
 				break;
 			case "password":
 				fieldIsValid = passwordRegex.test(value);
+				break;
+			case "phone":
+				fieldIsValid = phoneRegexFR.test(value) || phoneRegexUS.test(value) || phoneRegexUK.test(value);
 				break;
 			default:
 				console.error("Au moins un des champs est non vérifié.");
@@ -29,6 +36,7 @@ export default function fieldValidator(body) {
 
 		// Response return
 		if (!fieldIsValid) {
+			console.log("value", value);
 			return { result: false, error: "Au moins un des champs est invalide. Merci de réessayer." };
 		}
 	}
