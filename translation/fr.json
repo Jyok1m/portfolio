@@ -22,7 +22,11 @@
 		"portfolioDesc": "Ce portfolio est un projet personnel évolutif qui me permet de mettre en avant mes compétences et mes projets, tout en essayant de nouvelles technologies.",
 		"tableeDesc": "Tablée est une application de mise en relation entre professionnels CHR et étudiants en hôtellerie-restauration. Elle offre un accès à des missions ponctuelles et à des extras dans les établissements parisiens.",
 		"arianeDesc": "Ariane est la plateforme pédagogique de La Capsule. Elle permet aux étudiants de suivre leur progression, de consulter les cours et de réaliser les exercices.",
-		"skemaDesc": "Adaptation du jeu de Monopoly créé dans le cadre d'un projet d'études. Le jeu reprend les codes du Monopoly classique, mais avec des mécaniques personnalisées à Skema Business School."
+		"skemaDesc": "Adaptation du jeu de Monopoly créé dans le cadre d'un projet d'études. Le jeu reprend les codes du Monopoly classique, mais avec des mécaniques personnalisées à Skema Business School.",
+		"portfolioAlt": "Écran d'accueil du portfolio de Joachim Jasmin",
+		"tableeAlt": "Écran d'accueil de Tablée",
+		"arianeAlt": "Portail de connexion d'Ariane",
+		"skemaAlt": "Capture d'écran du plateau de jeu du Skemanopoly"
 	},
 	"Resume": {
 		"title": "Expériences professionnelles",

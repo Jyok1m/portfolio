@@ -22,7 +22,11 @@
 		"portfolioDesc": "This portfolio is an evolving personal project that allows me to showcase my skills and projects, while trying out new technologies.",
 		"tableeDesc": "Tablée is an application connecting hospitality professionals with catering students. It provides access to occasional jobs and extras in Parisian establishments.",
 		"arianeDesc": "Ariane is the educational platform of La Capsule. It allows students to track their progress, consult the courses, and complete exercises.",
-		"skemaDesc": "Adaptation of the Monopoly game created as part of a study project. The game takes the classic Monopoly codes but with mechanics customized for Skema Business School."
+		"skemaDesc": "Adaptation of the Monopoly game created as part of a study project. The game takes the classic Monopoly codes but with mechanics customized for Skema Business School.",
+		"portfolioAlt": "Joachim Jasmin's portfolio's home screen",
+		"tableeAlt": "Tablee's homescreen",
+		"arianeAlt": "Ariane's login page",
+		"skemaAlt": "Screenshot of the Skemanopoly's gaming board"
 	},
 	"Resume": {
 		"title": "Professional Experiences",

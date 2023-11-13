@@ -15,7 +15,11 @@ export default function Projects() {
 				{projects.map((project, i) => (
 					<article key={i} className="flex flex-col lg:w-5/12 gap-8 mt-10 mx-auto">
 						<div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-full lg:h-64 lg:shrink-0">
-							<img src={project.imageUrl} alt={project.imageAlt} className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover" />
+							<img
+								src={project.imageUrl}
+								alt={t(project.imageAlt)}
+								className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover text-zinc-800"
+							/>
 							<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 						</div>
 						<div>
