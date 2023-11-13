@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ExclamationCircleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { notification } from "antd";
-import Button from "@global-components/Button";
 import { emailRegex, phoneRegexFR, phoneRegexUS, phoneRegexUK, nameRegex } from "@/utils/regex";
+import Button from "@global-components/Button";
 
 export default function InquiryForm(props) {
 	const [api, contextHolder] = notification.useNotification();
@@ -219,9 +219,6 @@ export default function InquiryForm(props) {
 								id="phone"
 								autoComplete="tel"
 								disabled={loading}
-								// className={
-								// 	"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								// }
 								className="block w-full rounded-md border-0 pl-24 py-2 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={country === "FR" ? props.phonePlaceholderFR : country === "US" ? props.phonePlaceholderUS : props.phonePlaceholderUK}
 								aria-invalid={errors.phone ? "true" : "false"}
@@ -278,12 +275,7 @@ export default function InquiryForm(props) {
 				{/* Button */}
 
 				<div className="mt-10 flex justify-end pt-8 w-full">
-					<Button
-						type="submit"
-						className="ml-4 flex-none"
-						title={props.submit}
-						loading={loading}
-					/>
+					<Button type="submit" className="ml-4 flex-none" title={props.submit} loading={loading} />
 				</div>
 			</form>
 		</>

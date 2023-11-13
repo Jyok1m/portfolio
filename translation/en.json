@@ -56,7 +56,7 @@
 		"messagePlaceholder": "Describe your project here...",
 		"optional": "Optional",
 		"submit": "Send",
-		"requiredField": "Required fields",
+		"requiredField": "Required field",
 		"invalidFirstname": "Invalid first name",
 		"invalidLastname": "Invalid last name",
 		"invalidEmail": "Invalid Email",
@@ -78,6 +78,8 @@
 		"forgot": "Forgot password ?",
 		"signin": "Sign in",
 		"notRegistered": "No account yet ?",
-		"signupLink": "Create one here"
+		"signupLink": "Create one here",
+		"errorSignin": "One field or more is incorrect. Please try again.",
+		"requiredField": "Required field"
 	}
 }

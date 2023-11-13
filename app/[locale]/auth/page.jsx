@@ -25,6 +25,8 @@ export default function Auth() {
 							signin: t("signin"),
 							notRegistered: t("notRegistered"),
 							signupLink: t("signupLink"),
+							errorSignin: t("errorSignin"),
+							requiredField: t("requiredField"),
 						}}
 					/>
 				</div>

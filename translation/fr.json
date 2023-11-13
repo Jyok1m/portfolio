@@ -56,7 +56,7 @@
 		"messagePlaceholder": "Décrivez-votre projet ici...",
 		"optional": "Optionnel",
 		"submit": "Envoyer",
-		"requiredField": "Champs obligatoires",
+		"requiredField": "Champ obligatoire",
 		"invalidFirstname": "Prénom invalide",
 		"invalidLastname": "Nom invalide",
 		"invalidEmail": "Email invalide",
@@ -78,6 +78,8 @@
 		"forgot": "Mot de passe oublié?",
 		"signin": "Se connecter",
 		"notRegistered": "Pas encore de compte?",
-		"signupLink": "Créez-en un ici"
+		"signupLink": "Créez-en un ici",
+		"errorSignin": "Un ou plusieurs champs sont incorrects. Veuillez-réessayer.",
+		"requiredField": "Champ obligatoire"
 	}
 }
