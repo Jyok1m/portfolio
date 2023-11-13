@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams, useSelectedLayoutSegment } from "next/navigation";
 import { Popover, Transition } from "@headlessui/react";
 import { XMarkIcon, ChevronDownIcon, SunIcon, MoonIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
@@ -74,21 +74,10 @@ function MobileNavigation(props) {
 }
 
 function NavItem({ href, children }) {
-	let isActive = usePathname() === href;
-
 	return (
 		<li className="w-28 flex justify-center">
-			<a
-				href={href}
-				className={clsx(
-					"relative block px-3 py-2 transition",
-					isActive ? "text-teal-500 dark:text-[#415A77]" : "hover:text-[#415A77] dark:hover:text-[#415A77]"
-				)}
-			>
+			<a href={href} className="relative block px-3 py-2 transition text-zinc-800 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-400">
 				{children}
-				{isActive && (
-					<span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
-				)}
 			</a>
 		</li>
 	);
@@ -164,14 +153,16 @@ function ThemeToggle() {
 }
 
 function LangToggle() {
-	const isFR = usePathname() === "/";
-	const isEN = usePathname() === "/en";
+	const isFR = useParams().locale !== "en";
+	const param = isFR ? "/en/" : "/fr/";
+	const segment = useSelectedLayoutSegment() || "";
+	const newLink = param + segment;
+
 	return (
 		<a
-			href={isFR ? "/en" : "/fr"}
+			href={newLink}
 			aria-label="Home"
 			type="button"
-			onClick={() => (isFR ? "/en" : "/")}
 			className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
 		>
 			<h1 className="text-center h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-zinc-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-500">

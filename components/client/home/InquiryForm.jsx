@@ -75,9 +75,7 @@ export default function InquiryForm(props) {
 								id="firstname"
 								autoComplete="given-name"
 								disabled={loading}
-								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								}
+								className="block w-full rounded-md border-0 py-1.5 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={props.firstnamePlaceholder}
 								aria-invalid={errors.firstname ? "true" : "false"}
 								{...register("firstname", {
@@ -107,9 +105,7 @@ export default function InquiryForm(props) {
 								id="lastname"
 								autoComplete="family-name"
 								disabled={loading}
-								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								}
+								className="block w-full rounded-md border-0 py-1.5 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={props.lastnamePlaceholder}
 								aria-invalid={errors.lastname ? "true" : "false"}
 								{...register("lastname", {
@@ -139,9 +135,7 @@ export default function InquiryForm(props) {
 								type="email"
 								autoComplete="email"
 								disabled={loading}
-								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								}
+								className="block w-full rounded-md border-0 py-1.5 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={props.emailPlaceholder}
 								aria-invalid={errors.email ? "true" : "false"}
 								{...register("email", {
@@ -176,9 +170,7 @@ export default function InquiryForm(props) {
 								id="company"
 								autoComplete="organization"
 								disabled={loading}
-								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								}
+								className="block w-full rounded-md border-0 py-1.5 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={props.companyPlaceholder}
 								aria-invalid={errors.company ? "true" : "false"}
 								{...register("company", { required: { value: false } })}
@@ -214,7 +206,7 @@ export default function InquiryForm(props) {
 									autoComplete="country"
 									disabled={loading}
 									onChange={(e) => setCountry(e.target.value)}
-									className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm bg-[#d7d7da]"
+									className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-zinc-800 dark:text-zinc-100 focus:outline-none sm:text-sm"
 								>
 									<option>FR</option>
 									<option>US</option>
@@ -227,9 +219,10 @@ export default function InquiryForm(props) {
 								id="phone"
 								autoComplete="tel"
 								disabled={loading}
-								className={
-									"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								}
+								// className={
+								// 	"block w-full rounded-md border-0 pl-24 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
+								// }
+								className="block w-full rounded-md border-0 pl-24 py-2 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={country === "FR" ? props.phonePlaceholderFR : country === "US" ? props.phonePlaceholderUS : props.phonePlaceholderUK}
 								aria-invalid={errors.phone ? "true" : "false"}
 								{...register("phone", {
@@ -264,9 +257,7 @@ export default function InquiryForm(props) {
 								rows={4}
 								aria-describedby="message-description"
 								disabled={loading}
-								className={
-									"block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 dark:bg-zinc-200"
-								}
+								className="block w-full rounded-md border-0 py-1.5 px-2 text-zinc-800 dark:text-zinc-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
 								placeholder={props.messagePlaceholder}
 								aria-invalid={errors.message ? "true" : "false"}
 								{...register("message", {
@@ -287,7 +278,12 @@ export default function InquiryForm(props) {
 				{/* Button */}
 
 				<div className="mt-10 flex justify-end pt-8 w-full">
-					<Button type="submit" className="ml-4 flex-none bg-zinc-700 hover:bg-[#0d1b2a]" title={props.submit} loading={loading} />
+					<Button
+						type="submit"
+						className="ml-4 flex-none"
+						title={props.submit}
+						loading={loading}
+					/>
 				</div>
 			</form>
 		</>

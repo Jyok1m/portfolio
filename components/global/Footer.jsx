@@ -4,7 +4,7 @@ import { ContainerInner, ContainerOuter } from "@/components/global/Container";
 
 function NavLink({ href, children }) {
 	return (
-		<Link href={href} className="transition hover:text-[#415A77] dark:hover:text-[#415A77]">
+		<Link href={href} className="transition text-zinc-800 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-400">
 			{children}
 		</Link>
 	);

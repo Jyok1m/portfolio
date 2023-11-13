@@ -64,5 +64,20 @@
 		"invalidMessage": "Votre message doit contenir moins de 500 caractères",
 		"successMessage": "Merci pour votre message. Je reviendrai vers vous le plus rapidement possible !",
 		"errorMessage": "Une erreur est survenue. Veuillez réessayer plus tard."
+	},
+	"Auth": {
+		"title": "Connectez-vous à votre compte",
+		"subtitle": "Sauvegardez votre progression, accédez à vos statistiques et plus encore...",
+		"email": "Email",
+		"emailPlaceholder": "jean.dupont@jeandupont.fr",
+		"invalidEmail": "Email invalide",
+		"existingUser": "Un utilisateur avec cette adresse email existe déjà",
+		"password": "Mot de passe",
+		"passwordPlaceholder": "••••••••",
+		"invalidPassword": "Votre mot de passe doit contenir au moins 8 caractères, dont 1 charactère spécial, 1 chiffre et 1 lettre majuscule.",
+		"forgot": "Mot de passe oublié?",
+		"signin": "Se connecter",
+		"notRegistered": "Pas encore de compte?",
+		"signupLink": "Créez-en un ici"
 	}
 }

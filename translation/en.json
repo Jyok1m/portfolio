@@ -57,12 +57,27 @@
 		"optional": "Optional",
 		"submit": "Send",
 		"requiredField": "Required fields",
-		"invalidFirstname": "Invalid First Name",
-		"invalidLastname": "Invalid Last Name",
+		"invalidFirstname": "Invalid first name",
+		"invalidLastname": "Invalid last name",
 		"invalidEmail": "Invalid Email",
 		"invalidPhone": "Invalid Phone",
 		"invalidMessage": "Your message must be not exceed 500 characters",
 		"successMessage": "Thank you for your message. I will get back to you as soon as possible!",
 		"errorMessage": "An error has occurred. Please try again later."
+	},
+	"Auth": {
+		"title": "Sign in to your account",
+		"subtitle": "Save your progress, see your stats and more...",
+		"email": "Email",
+		"emailPlaceholder": "john.doe@johndoe.com",
+		"invalidEmail": "Invalid Email",
+		"existingUser": "A user with this email address already exists",
+		"password": "Password",
+		"passwordPlaceholder": "••••••••",
+		"invalidPassword": "Your password must be at least 8 characters long and include at least 1 special character, 1 uppercase letter and 1 number.",
+		"forgot": "Forgot password ?",
+		"signin": "Sign in",
+		"notRegistered": "No account yet ?",
+		"signupLink": "Create one here"
 	}
 }
