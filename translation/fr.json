@@ -3,7 +3,9 @@
 		"about": "À propos",
 		"projects": "Projets",
 		"contact": "Me contacter",
-		"copyright": "Joachim Alexandre Jasmin. Tous droits réservés."
+		"copyright": "Joachim Alexandre Jasmin. Tous droits réservés.",
+		"languageEn": "Passer en anglais",
+		"languageFr": "Passer en français"
 	},
 	"Intro": {
 		"title": "Développeur full-stack, teacher et",

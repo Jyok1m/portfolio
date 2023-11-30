@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { usePathname, useParams, useSelectedLayoutSegment } from "next/navigation";
+import { usePathname, useParams, useSelectedLayoutSegment, useRouter } from "next/navigation";
 import { Popover, Transition } from "@headlessui/react";
 import { XMarkIcon, ChevronDownIcon, SunIcon, MoonIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
@@ -152,30 +152,28 @@ function ThemeToggle() {
 	);
 }
 
-function LangToggle() {
+function LangToggle({ languageFr, languageEn }) {
+	const router = useRouter();
 	const isFR = useParams().locale !== "en";
 	const param = isFR ? "/en/" : "/fr/";
 	const segment = useSelectedLayoutSegment() || "";
 	const newLink = param + segment;
 
 	return (
-		<a
-			href={newLink}
-			aria-label="Home"
+		<button
 			type="button"
+			aria-label={isFR ? languageEn : languageFr}
 			className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+			onClick={() => router.push(newLink)}
 		>
-			<h1 className="text-center h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-zinc-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-500">
+			<h1 className="text-center h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-zinc-500">
 				{isFR ? "FR" : "EN"}
 			</h1>
-			<h1 className="text-center hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-zinc-500">
-				{isFR ? "FR" : "EN"}
-			</h1>
-		</a>
+		</button>
 	);
 }
 
-export default function Header({ labels }) {
+export default function Header({ labels, languageFr, languageEn }) {
 	let isHomePage = usePathname() === "/" || usePathname() === "/en";
 
 	let headerRef = useRef(null);
@@ -340,7 +338,7 @@ export default function Header({ labels }) {
 							</div>
 							<div className="flex justify-end md:flex-1">
 								<div className="pointer-events-auto mr-4">
-									<ThemeToggle />
+									<ThemeToggle languageFr={languageFr} languageEn={languageEn} />
 								</div>
 								<div className="pointer-events-auto">
 									<LangToggle />

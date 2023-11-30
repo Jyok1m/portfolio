@@ -25,6 +25,8 @@ function MainLayout({ children }) {
 					labels={keys.map((key) => {
 						return { label: t(key), href: key !== "about" ? `/#${key}` : "/#" };
 					})}
+					languageEn={t("languageEn")}
+					languageFr={t("languageFr")}
 				/>
 				<main className="flex-auto">{children}</main>
 				<Footer
