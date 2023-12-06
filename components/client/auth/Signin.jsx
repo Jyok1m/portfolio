@@ -35,27 +35,27 @@ export default function Signin({ t }) {
 	};
 
 	const onSubmit = async (form) => {
-		setLoading(true);
+		// setLoading(true);
 
-		try {
-			const res = await fetch("../api/auth/signin", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(form),
-			});
+		// try {
+		// 	const res = await fetch("../api/auth/signin", {
+		// 		method: "POST",
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 		},
+		// 		body: JSON.stringify(form),
+		// 	});
 
-			if (res.status === 201) {
-				reset();
-			} else {
-				openNotification("error");
-			}
-		} catch (error) {
-			openNotification("error");
-		} finally {
-			setLoading(false);
-		}
+		// 	if (res.status === 201) {
+		// 		reset();
+		// 	} else {
+		// 		openNotification("error");
+		// 	}
+		// } catch (error) {
+		// 	openNotification("error");
+		// } finally {
+		// 	setLoading(false);
+		// }
 	};
 
 	return (

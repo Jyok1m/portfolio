@@ -36,7 +36,7 @@ export default function InquiryForm(props) {
 		setLoading(true);
 
 		try {
-			const res = await fetch("../api/inquiries/new", {
+			const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiry`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
